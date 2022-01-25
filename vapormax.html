@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script> 
+$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideDown("slow");
+        $("#vaporvideo").slideDown("slow");
+
+    });
+});
+</script>
+ 
+<style> 
+
+h2 {
+    color: blueviolet;
+    font-size: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#panel, #flip {
+    padding: 16px;
+    background-color: #ff14a5;
+    border: solid 1px #020101;
+}
+#panel {
+    display: none;
+}
+
+#vaporvideo {
+    padding:16px;
+    background-color: blue;
+    border: solid 5px yellow;
+}
+
+#vrroom {
+    border: solid 5px palegreen;
+    background-color: orange;
+}
+
+#handfilter {
+    background-color: powderblue;
+}
+
+#faceai {
+    background-color: palegoldenrod;
+}
+
+#video {
+    background-color:aqua;
+}
+</style>
+
+<body>
+<h2>VAPORMAX</h2> 
+<div id="flip">Click to slide down panel</div>
+<div id="panel">
+  <p>VAPORMAX AI.</p>
+  <img src="text 3.png" alt="text" width="500" height="600">
+</div>
+
+<div id="flip">Click to slide down panel</div>
+<div id="vaporvideo">
+    <img src="capture.gif" alt="text" width="500" height="600">
+  </div>
+
+<div id="flip">Click to slide down panel</div>
+<div id="vrroom">
+    <img src="ezgif.com-gif-maker.gif" alt="bus" width="400" height="800">
+    <img src="VR ROOM.jpg" alt="vr" width="500" height="700">
+</div>
+
+<div id="flip">Click to slide down panel</div>
+<div id="handfilter">
+    <img src="ezgif.com-gif-maker (1).gif" alt="hand" width="400" height="800">
+</div>
+
+
+<div id="faceai">
+    <img src="face points.gif" alt="faceai" width="700" height="500">
+</div>
+
+<div id="video">
+    <video width="800" height="500" controls>
+        <source src="video.mp4" type="video/mp4">
+        <source src="video.ogg" type="video/ogg">
+        Your browser does not support the video tag.
+      </video> 
+      <img src="WEB 2.jpg" alt="web" width="300" height="500">
+      </div>
+</body>
+</html>
