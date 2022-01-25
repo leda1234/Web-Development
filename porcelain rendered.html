@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" data-predefined-style="true" data-css-presents="true" data-css-preset data-typography-preset-style="font-size:24%;"">
+<head>
+    <link rel="stylesheet" href="styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<title>Leda Sadotti </title> 
+<style>
+    body {
+  font-family: 'Neutra', monospace;
+}
+
+body {
+        background-image: url('Desktop.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed; 
+        background-size: 100% 100%;
+      }
+      
+h1 {
+          text-align:center
+          }
+
+          h1 {
+              background:blue;
+              color: white;
+          }
+</style>
+</style>
+</head>
+
+<body>
+    <h1>PORCELAIN RENDERED</h1>
+</body>
+
+<link rel="stylesheet" href="./dist/style/subjx.css" />
+<script src="./dist/js/subjx.js">
+
+const myInstance = Subjx('.myElement').drag({
+
+    // parent container
+    container: '#container',
+  
+    // "controls" append to this element
+    controlsContainer: '.selector'
+  
+    // 'x' | 'y' | 'xy'
+    axis: 'x',
+  
+    // snap to grid
+    snap: {
+      x: 10,
+      y: 10,
+      angle: 10
+    },
+  
+    // mimic behavior with other '.draggable' elements
+    each: {
+      move: false,
+      resize: false, 
+      rotate: false
+    },
+  
+    // enable/disable actions
+    draggable: true,
+    resizable: true,
+    rotatable: true,
+    scalable: false,
+  
+    // preserve aspect ratio when resizing
+    proportions: true,
+  
+    // restrict element dragging/resizing/rotation
+    restrict: '.selector',
+  
+    //  'n' | 's' | 'w' | 'e'
+    rotatorAnchor: 'e',
+  
+    // rotate offset
+    rotatorOffset: 50,
+  
+  });
+
+  const myInstance = Subjx('.myElement').clone({
+
+// dropping area
+stack: 'selector',
+
+// set clone parent
+appendTo: 'selector',
+
+// additional CSS styles
+style: {
+  border: '1px dashed green',
+  background: 'transparent'
+},
+
+});
+
+const myInstance = Subjx('.myElement').drag({
+
+onInit(el) {
+  // fires on tool activation
+},
+onMove(clientX, clientY, dx, dy, transform) {
+  // fires on moving
+},
+onResize(clientX, clientY, dx, dy, transform, width, height) {
+  // fires on resizing
+},
+onRotate(clientX, clientY, delta, transform) {
+  // fires on rotation
+},
+onDrop(clientX, clientY) {
+  // fires on drop
+},
+onDestroy(el) {
+  // fires on tool deactivation
+}
+
+});
+
+// returns root DOM element of 'controls'
+myInstance.controls;
+
+// provides access to useful options
+myInstance.storage;
+
+// enables draggable
+myInstance.enable(options);
+
+// disables draggable, and removes controls & handles
+myInstance.disable();
+
+ // adds event listener
+myInstance.on(eventName, cb);
+// removes event listener
+myInstance.off(eventName, cb);
+// event names
+const EVENTS = [
+  'dragStart',
+  'drag',
+  'dragEnd',
+  'resizeStart',
+  'resize',
+  'resizeEnd',
+  'rotateStart',
+  'rotate',
+  'rotateEnd'
+];
+
+// execute dragging
+myInstance.exeDrag({
+  dx, // drag along the x axis
+  dy // drag along the y axis
+});
+
+// execute resizing
+myInstance.exeResize({
+  dx, // resize along the x axis
+  dy, // resize along the y axis
+  revX, // reverse resizing along the x axis
+  revY, // reverse resizing along the y axis
+  doW, // allow width resizing
+  doH  // allow height resizing
+});
+
+// execute rotating
+myInstance.exeRotate({
+  delta // radians
+});
+
+// align element inside container: ['t', 'l', 'r', 'b', 'v', 'h']
+myInstance.applyAlignment('tr');
+
+// Call this method when applying scale or viewBox values changing
+// useful when element's container was transformed from outside
+myInstance.fitControlsToSize();
+
+// Returns rotation point handle to default position
+myInstance.resetCenterPoint();
+
+  </script>
+</html>
