@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" data-predefined-style="true" data-css-presents="true" data-css-preset data-typography-preset-style="font-size:24%;"">
+<head>
+    <link rel="stylesheet" href="styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<title>Leda Sadotti </title> 
+<style>
+    body {
+        font-family: 'Neutra', monospace;
+    }
+body {
+        background-image: url('FACEAI.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed; 
+        background-size: 100% 100%;
+      }
+      
+h1 {
+    text-align:center
+}
+h1 {
+    background:blue;
+    color: white;
+}
+
+img.facebuilder {
+  position:absolute;
+  right:700px;
+  top:200px;
+} 
+
+img.skintexture {
+    position:absolute;
+    right:535px;
+    top:200px;
+}
+
+img.skinface {
+    position:absolute;
+    right:300px;
+    top:200px;
+}
+
+.img-zoom-container {
+  position: relative;
+}
+
+.img-zoom-lens {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  /*set the size of the lens:*/
+  width: 40px;
+  height: 40px;
+}
+
+.img-zoom-result {
+  border: 1px solid #d4d4d4;
+  /*set the size of the result div:*/
+  width: 300px;
+  height: 300px;
+}
+</style>
+<script>
+function imageZoom(imgID, resultID) {
+  var img, lens, result, cx, cy;
+  img = document.getElementById(imgID);
+  result = document.getElementById(resultID);
+  /*create lens:*/
+  lens = document.createElement("DIV");
+  lens.setAttribute("class", "img-zoom-lens");
+  /*insert lens:*/
+  img.parentElement.insertBefore(lens, img);
+  /*calculate the ratio between result DIV and lens:*/
+  cx = result.offsetWidth / lens.offsetWidth;
+  cy = result.offsetHeight / lens.offsetHeight;
+  /*set background properties for the result DIV:*/
+  result.style.backgroundImage = "url('" + img.src + "')";
+  result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+  /*execute a function when someone moves the cursor over the image, or the lens:*/
+  lens.addEventListener("mousemove", moveLens);
+  img.addEventListener("mousemove", moveLens);
+  /*and also for touch screens:*/
+  lens.addEventListener("touchmove", moveLens);
+  img.addEventListener("touchmove", moveLens);
+  function moveLens(e) {
+    var pos, x, y;
+    /*prevent any other actions that may occur when moving over the image:*/
+    e.preventDefault();
+    /*get the cursor's x and y positions:*/
+    pos = getCursorPos(e);
+    /*calculate the position of the lens:*/
+    x = pos.x - (lens.offsetWidth / 2);
+    y = pos.y - (lens.offsetHeight / 2);
+    /*prevent the lens from being positioned outside the image:*/
+    if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+    if (x < 0) {x = 0;}
+    if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+    if (y < 0) {y = 0;}
+    /*set the position of the lens:*/
+    lens.style.left = x + "px";
+    lens.style.top = y + "px";
+    /*display what the lens "sees":*/
+    result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+  }
+  function getCursorPos(e) {
+    var a, x = 0, y = 0;
+    e = e || window.event;
+    /*get the x and y positions of the image:*/
+    a = img.getBoundingClientRect();
+    /*calculate the cursor's x and y coordinates, relative to the image:*/
+    x = e.pageX - a.left;
+    y = e.pageY - a.top;
+    /*consider any page scrolling:*/
+    x = x - window.pageXOffset;
+    y = y - window.pageYOffset;
+    return {x : x, y : y};
+  }
+}
+</script>
+</head>
+<body>
+    <body>
+        <h1>FACE AI</h1>
+        </body>
+        
+<div class="img-zoom-container">
+  <img id="myimage" src="kt_facebuilder_texture.jpg" width="300" height="240">
+  <div id="myresult" class="img-zoom-result"></div>
+</div>
+
+<!--Image zoom-->
+<script>
+// Initiate zoom effect:
+imageZoom("myimage", "myresult");
+</script>
+
+</body>
+</html>
+</style>
+</style>
+</head>
+</style>
+
+<!--FACEAI Project Content-->
+<body>
+    <img class="facebuilder" src="kt_facebuilder_texture.jpg" width="auto" height="120" alt="face" usemap="#facebuilder">
+    <map name="facebuilder">
+    </map>
+</body>
+
+<body>
+    <img class="skintexture" src="skintexture.png" width="auto" height="120" alt="skintexture" usemap="#skintexture">
+    <map name="skintexture">
+
+    </map>
+</body>
+
+<body>
+    <img class="skinface" src="skin faceai.png" width="auto" height="120" alt="skin" usemap="#skinface">
+    <map name="skinface">
+
+    </map>
+</body>
+
+
+</html>
